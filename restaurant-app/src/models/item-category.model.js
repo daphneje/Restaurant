@@ -11,11 +11,6 @@ module.exports = function (sequelize) {
         autoIncrement: true,
         field: "item_category_id",
       },
-      itemId: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        field: "item_id",
-      },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -38,7 +33,7 @@ module.exports = function (sequelize) {
     {
       sequelize,
       modelName: "ItemCategory",
-      tableName: "item_category",
+      tableName: "item_categories",
     }
   );
 

@@ -1,5 +1,7 @@
 // Import sequelize
+
 const { Sequelize } = require("sequelize");
+
 
 // DB Connection Configuration
 
@@ -20,6 +22,7 @@ const sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
   },
 });
 
+
 // Test connection function
 
 async function testConnection() {
@@ -33,6 +36,7 @@ async function testConnection() {
   }
 }
 
+
 //Import models
 
 const Table = require("./table.model")(sequelize);
@@ -42,24 +46,28 @@ const Admin = require("./admin.model")(sequelize);
 const ItemCategory = require("./item-category.model")(sequelize);
 const Item = require("./item.model")(sequelize);
 
+
 //Create associations
   
 Order.belongsTo(Table, {
-    foreignKey: "order_id",
+    foreignKey: "table_id",
   });
   
 OrderItem.belongsTo(Order, {
-    foreignKey: "order_item_id",
+    foreignKey: "order_id",
   });
 
-Admin.belongsTo(Order, {
-    foreignKey: "order_item_id",
-  });
-  
-Item.belongsTo(ItemCategory, {
+OrderItem.belongsTo(Item, {
     foreignKey: "item_id",
+  });
+
+Item.belongsTo(ItemCategory, {
+    foreignKey: "item_category_id",
 });
 
+Admin.belongsTo(OrderItem, {
+    foreignKey: "order_item_id",
+  });
 
 
 // Exports (remember enhanced object literal)
