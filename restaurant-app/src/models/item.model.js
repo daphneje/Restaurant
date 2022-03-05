@@ -11,6 +11,11 @@ module.exports = function (sequelize) {
         autoIncrement: true,
         field: "item_id",
       },
+      itemCategoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        field: "item_category_id",
+      },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
