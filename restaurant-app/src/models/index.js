@@ -57,10 +57,6 @@ OrderItem.belongsTo(Order, {
     foreignKey: "order_id",
   });
 
-OrderItem.belongsTo(Item, {
-    foreignKey: "item_id",
-  });
-
 Item.belongsTo(ItemCategory, {
     foreignKey: "item_category_id",
 });
