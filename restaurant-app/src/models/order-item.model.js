@@ -21,6 +21,17 @@ module.exports = function (sequelize) {
         allowNull: true,
         field: "item_id",
       },
+
+      itemTitle: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        field: "item_title",
+      },
+      itemUnitPrice: {
+        type: DataTypes.NUMBER,
+        allowNull: false,
+        field: "item_unit_price",
+      },
       quantity: {
         type: DataTypes.INTEGER,
         allowNull: false,
