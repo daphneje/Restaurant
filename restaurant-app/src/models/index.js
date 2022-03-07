@@ -47,7 +47,7 @@ const ItemCategory = require("./item-category.model")(sequelize);
 const Item = require("./item.model")(sequelize);
 
 
-//Create associations
+//Create associations 
   
 Order.belongsTo(Table, {
     foreignKey: "table_id",
