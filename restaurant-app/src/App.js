@@ -4,10 +4,11 @@ import {NavBar, CategoryBar} from './components'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 
-// const { testConnection} = require('./models');
+const { testConnection} = require('./models');
 
-// testConnection();
+testConnection();
 
+const text = "11"
 
 function App() {
   return (
