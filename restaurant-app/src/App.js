@@ -1,18 +1,28 @@
 import React from 'react';
-import {Main} from './screens'
-import {NavBar} from './components'
-import {CategoryBar} from './components'
-
+import {Main, MenuItems} from './screens'
+import {NavBar, CategoryBar} from './components'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
+
+// const { testConnection} = require('./models');
+
+// testConnection();
+
 
 function App() {
   return (
-    <div className="App">
-      <NavBar/>
-      <CategoryBar/>
-      <Main/>
+    <Router>
+      <div className="App">
+        <NavBar/>
+        <div className='content'>
+          <Routes>
+            <Route path='/' element = {<Main/>} />
     
-    </div>
+            <Route path='/menu/:id' element = {<><CategoryBar/> <MenuItems/></>} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 

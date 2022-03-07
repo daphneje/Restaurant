@@ -18,13 +18,13 @@ const foodCategory = [
         image: imageCategory.pasta
     },
     {
-        title: 'salads',
+        title: 'Salads',
         image: imageCategory.salads
     },
     {
-        title: 'ribs',
+        title: 'Ribs',
         image: imageCategory.ribs
     },
 ];
 
-export {foodCategory};
+export default foodCategory;
