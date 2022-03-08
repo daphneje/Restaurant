@@ -33,6 +33,30 @@ const foodItemList = [
         image: images.nyporkchop,
         category: 'Grill'
     },
+    {
+        id: '5',
+        title: "Fresh Tomato Soup with Parsley and Truffle Oil",
+        description:"We make our soup everyday using hand cut vegetables and house made stock. Served with freshly baked garlic ciabatta.",
+        unitPrice:4.50,
+        image: images.tomatosoup,
+        category: 'Hearty Soup'
+    },
+    {
+        id: '6',
+        title: "Fresh Mushroom Soup with Cream and Truffle Oil",
+        description:"We make our soup everyday using hand cut vegetables and house made stock. Served with freshly baked garlic ciabatta.",
+        unitPrice:4.50,
+        image: images.tomatosoup,
+        category: 'Hearty Soup'
+    },
+    {
+        id: '7',
+        title: "Lobster Linguine",
+        description:"Lobster meat, smoked bacon, shiitake mushrooms. Olive oil, garlic, chili flakes, black olives, capers, white wine, lemon juice, cherry tomatoes, parmesan and topped with arugula leaves. Yummy!",
+        unitPrice:14.90,
+        image: images.lobster,
+        category: 'Pasta'
+    },
 
 ]
 

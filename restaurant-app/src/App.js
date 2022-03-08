@@ -19,17 +19,17 @@ function App() {
 const [cartItems, setCartItems] = useState([]);
 
 const addItem = (product) => {
-  console.log(cartItems)
-  const exist = cartItems.find((x)=> x.id === product.id );
+  // console.log(cartItems)
+  const exist = cartItems.find((item)=> item.id === product.id );
   if (exist) {
     setCartItems (
-      cartItems.map((x)=>
-        x.id === product.id ? {...exist, qty: exist.qty + 1 } : x
-      )
+      cartItems.map((item)=> item.id === product.id ? 
+      {...exist, qty: exist.qty + 1 } : item )
     ) 
+    // console.log(cartItems)
   } else {
     setCartItems([...cartItems, {...product, qty: 1}]);
-    console.log(cartItems)
+    // console.log(cartItems)
   }
 };
 const removeItem = (pdt) => {
@@ -48,12 +48,12 @@ const removeItem = (pdt) => {
   return (
     <Router>
       <div className="App">
-        <NavBar/>
         <RoutesFile 
         foodCategory = {foodCategory} 
         foodItem = {foodItem} 
         cartItems = {cartItems}
-        addItem={addItem}/>
+        addItem={addItem}
+        removeItem={removeItem}/>
       </div>
     </Router>
   );

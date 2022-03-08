@@ -3,7 +3,6 @@ import './Main.css'
 // import {foodCategory} from '../../constants'
 import { Link } from 'react-router-dom'
 
-// import { ItemCategory } from '../../models'
 
 
 const Main = ({foodCategory}) => {
@@ -12,8 +11,8 @@ const Main = ({foodCategory}) => {
 
   // console.log (foodCategory)
     return (
-    <div className='app_category_container'>
     
+    <div className='app_category_container'>
       {foodCategoryList.map((t)=> (
         <div className='app_category_items'>
           <Link to={`/menu/${t.title}`}>
