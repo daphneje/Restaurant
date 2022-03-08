@@ -2,12 +2,18 @@
     padding: 20px;
     /* display: flex; */
     /* flex-wrap:wrap;     */
-    justify-content: flex-start;
-    background-color: aquamarine;
+    justify-content: space-evenly;
+    /* background-color: aquamarine; */
 }
-.app_category_items {
+.app_food_items {
     display: flex;
+    justify-content: space-evenly;
     background-color: white;
+    width: 30rem;
+
+}
+.app_category_image {
+    margin: auto;
 }
 .p_category_title {
     font-size: 1.2rem;
@@ -25,7 +31,7 @@ button {
     margin: 0.2rem;
     border-radius: 0.5rem;
     border: 0.1rem #404040 solid;
-    background-color: #f0c040;
+    background-color: lightblue;
     width: 90%;
     cursor: pointer;
   }

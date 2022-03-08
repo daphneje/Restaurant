@@ -25,6 +25,14 @@ const foodCategoryList = [
         title: 'Ribs',
         image: imageCategory.ribs
     },
+    {
+        title: 'Hearty Soup',
+        image: imageCategory.soup
+    },
+    {
+        title: 'Beverages',
+        image: imageCategory.icetea
+    },
     
 ];
 

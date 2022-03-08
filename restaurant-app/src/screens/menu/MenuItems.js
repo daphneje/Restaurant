@@ -15,7 +15,7 @@ const MenuItems = ({foodItem, addItem}) => {
 
   return (
     <div className='app_category_container'>
-      <div className='app_category_items'>
+      <div className='app_food_items'>
       {listMenu.map((product)=> (
         <div key = {product.id}>
           <img className='app_category_image' src={product.image} alt=''/>

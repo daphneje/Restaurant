@@ -1,40 +1,48 @@
 import React from 'react'
 import './Cart.css'
 
-const Cart = ({cartItems, addItem}) => {
-    // const { cartItems, onAdd, onRemove } = props;
-    // const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
-    // const serviceFee = itemsPrice * 0.10;
-    // const gst = (itemsPrice + serviceFee)*0.07
-    // const totalPrice = itemsPrice + serviceFee + gst;
+const Cart = ({cartItems, addItem, removeItem}) => {
+
+  const subTotal = cartItems.reduce((a, c) => a + c.qty * c.unitPrice, 0);
 
   return (
-    <aside className='block'>
-        
+    <div className='block'>
         <div className='app_cart_header'>Order Items</div>
         {cartItems.length === 0 && (<div>No Order Items</div>
         )}
         <div>
             {cartItems.map((item)=>(
                 <div key = {item.id} className='app_checkout_list'>
-                    <div>{item.title}</div>
-                    <div>
-                        {/* <button onClick={()=> onRemove(item)}>
+                    <div className='col-1'>{item.title}</div>
+                    <div className='col-2'>
+                        <button onClick={()=> removeItem(item)}>
                             -
                         </button>{' '}
-                        <button onClick ={()=> onAdd(item)}>
+                        <button onClick ={()=> addItem(item)}>
                             +
-                        </button> */}
+                        </button>
                     </div>
-                    <div>
-                    {item.qty} x ${item.unitPrice.toFixed(2)}
-                    {/* {item.qty} */}
+                    <div className='col-2 text-right' >
+                        {item.qty} x ${item.unitPrice.toFixed(2)}
                     </div>
-                    {/* <div>${item.unitPrice.toFixed(2)}</div> */}
                 </div>
             ))}
         </div>
-    </aside>
+        {cartItems.length !== 0 && (
+          <>
+          <hr/>
+           <div className="app_checkout_row">
+              <div className="col-1">Sub Total:</div>
+              <div className="col-2 text-right">${subTotal.toFixed(2)}</div>
+            </div>
+            <hr/>
+            <div className='app_cart_checkout'>
+            <button>
+                Checkout
+            </button>
+            </div>
+        </>)}
+    </div>
   )
 }
 

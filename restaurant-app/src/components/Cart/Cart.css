@@ -1,10 +1,14 @@
 .block {
-    flex: 1;
-    /* background-color: #e0e0e0; */
-    padding: 1rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-  }
+  /* display: flex;
+  flex:1;
+  margin: auto; */
+  /* flex-direction: column; */
+  /* background-color: #e0e0e0; */
+  padding: 2rem; 
+  /* align-items: stretch; */
+  border-radius: 0.5rem; 
+  /* justify-content: space-between; */
+}
 
 .app_cart_header {
   font-size: 2rem;
@@ -12,6 +16,45 @@
 }
 .app_checkout_list {
   display: flex;
+  /* background-color: bisque; */
   justify-content: space-between;
   font-size: 1.2rem;
+}
+
+.col-1 {
+  flex: 2;
+  /* align-items: flex-start;  */
+  text-align: left;
+}
+.col-2 {
+  flex: 2;
+}
+
+.col-2 button {
+  width: 2.5rem;
+}
+
+.app_checkout_row {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.2rem;
+}
+
+.app_cart_checkout {
+  position: absolute;
+  bottom: 20px;
+  right: 100px;
+  left: 100px;
+}
+
+.app_cart_checkout button {
+  width: 20rem;
+  padding: 0.3rem;
+  background-color: rgb(14, 233, 160);
+  font-size: 1.2rem;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
