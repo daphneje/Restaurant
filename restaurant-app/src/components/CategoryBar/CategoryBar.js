@@ -10,7 +10,7 @@ const CategoryBar = () => {
 
   return (
     <>
-    <ul class="overflow-x-scroll  flex">
+    <ul class="overflow-auto  flex">
       {foodCategory.map((eachItem1) => (
         <li class="flex-1 mr-2">
           <Link to={`/menu/${eachItem1.title}`}>
