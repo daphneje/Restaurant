@@ -1,15 +1,22 @@
 import React from 'react'
 import './NavBar.css'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   return (
     <nav className='app_navbar'>
       <div className='app_menu'>
-      Menu
+      <h2>
+        <Link to='/'>
+        Menu  
+        </Link>
+      </h2>
       </div>
       <div className='app_cart'>
-        <AiOutlineShoppingCart/>
+        <Link to='/cart'>
+          <AiOutlineShoppingCart/>
+        </Link>
       </div>
     </nav>
   )

@@ -1,0 +1,17 @@
+.block {
+    flex: 1;
+    /* background-color: #e0e0e0; */
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+.app_cart_header {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+.app_checkout_list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
