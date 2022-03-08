@@ -1,7 +1,31 @@
 .app_category_container {
     padding: 20px;
-    display: flex;
-    flex-wrap:wrap;    
+    /* display: flex; */
+    /* flex-wrap:wrap;     */
     justify-content: flex-start;
     background-color: aquamarine;
 }
+.app_category_items {
+    display: flex;
+    background-color: white;
+}
+.p_category_title {
+    font-size: 1.2rem;
+}
+
+.p_category_price {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+button {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.1rem;
+    margin: 0.2rem;
+    border-radius: 0.5rem;
+    border: 0.1rem #404040 solid;
+    background-color: #f0c040;
+    width: 90%;
+    cursor: pointer;
+  }
