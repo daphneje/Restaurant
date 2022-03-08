@@ -1,5 +1,5 @@
 import React from 'react';
-import {Main, MenuItems} from './screens'
+import {Main, MenuItems,SubMenuItem} from './screens'
 import {NavBar, CategoryBar} from './components'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
@@ -18,7 +18,8 @@ function App() {
           <Routes>
             <Route path='/' element = {<Main/>} />
     
-            <Route path='/menu/:id' element = {<><CategoryBar/> <MenuItems/></>} />
+            <Route path='/menu/:category' element = {<><CategoryBar/> <MenuItems/><SubMenuItem/></>} />
+
           </Routes>
         </div>
       </div>

@@ -25,6 +25,22 @@ const foodCategory = [
         title: 'Ribs',
         image: imageCategory.ribs
     },
+    {
+        title: 'Appetizers',
+        image: imageCategory.appetizers
+    },
+    {
+        title: 'Chef',
+        image: imageCategory.chef_pick
+    },
+    {
+        title: 'Economical',
+        image: imageCategory.economical
+    },
+    {
+        title: 'Popular',
+        image: imageCategory.popular
+    }
 ];
 
 export default foodCategory;
