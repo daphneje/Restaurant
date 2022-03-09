@@ -14,7 +14,7 @@ const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem}) =>
         <Route path='/main' element = {<Main foodCategory = {foodCategory}/>} />
         <Route path='/menu/:id' element = {<>
         <CategoryBar/> 
-     <div class = "flex items-stretch md:items-center">
+     <div>
      <MenuItems foodItem = {foodItem} addItem={addItem} />
         <SubMenuItem foodItem = {foodItem} addItem={addItem} />
         <PopupItem cartItems = {cartItems} removeItem = {removeItem} addItem = {addItem}/>
