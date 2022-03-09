@@ -1,7 +1,7 @@
 import React from 'react'
-import {Main, MenuItems, Splash} from '../screens'
+import {Main, MenuItems, Splash,SubMenuItem} from '../screens'
 import {Route, Routes} from 'react-router-dom'
-import { CategoryBar, Cart, NavBar } from '../components'
+import { CategoryBar, Cart, NavBar, PopupItem } from '../components'
 
 
 const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem}) => {
@@ -14,7 +14,14 @@ const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem}) =>
         <Route path='/main' element = {<Main foodCategory = {foodCategory}/>} />
         <Route path='/menu/:id' element = {<>
         <CategoryBar/> 
-        <MenuItems foodItem = {foodItem} addItem={addItem} />
+     <div class = "flex items-stretch md:items-center">
+     <MenuItems foodItem = {foodItem} addItem={addItem} />
+        <SubMenuItem foodItem = {foodItem} addItem={addItem} />
+        <PopupItem cartItems = {cartItems} removeItem = {removeItem} addItem = {addItem}/>
+     </div>
+        
+       
+        
         </>} />
 
         <Route path='/cart' element={<Cart cartItems={cartItems} addItem={addItem} removeItem={removeItem}/>}/>
