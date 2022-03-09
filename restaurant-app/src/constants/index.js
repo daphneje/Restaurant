@@ -1,5 +1,7 @@
 import images from './imageCategory'
-import foodCategory from './foodCategory'
-import { foodItem } from './foodItem';
+import foodCategoryList from './foodCategory'
+import foodItemList from './foodItem';
+import imageItem from './imageItem';
 
-export {images, foodCategory, foodItem};
+
+export {images, foodCategoryList, foodItemList, imageItem};

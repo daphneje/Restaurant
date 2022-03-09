@@ -8,6 +8,8 @@ import appetizers from '../assets/sides/buffalo-wings.jpeg'
 import chef_pick from '../assets/grills/steak-and-chops/ribeye-steak.jpeg'
 import popular from '../assets/ribs/baby-back-ribs-and-chicken-combo.jpeg'
 import economical from '../assets/grills/fish-and-seafood/cod-fish.jpeg'
+import soup from '../assets/soups/fresh-tomato-soup-with-parsley-and-truffle-oil.jpeg'
+import icetea from '../assets/beverages/iced-lemon-tea.jpeg'
 
 
 export default {
@@ -20,5 +22,7 @@ export default {
     appetizers,
     chef_pick,
     popular,
-    economical
+    economical,
+    soup,
+    icetea
 }

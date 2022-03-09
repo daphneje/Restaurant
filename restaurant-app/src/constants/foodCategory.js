@@ -1,6 +1,6 @@
 import imageCategory from './imageCategory'
 
-const foodCategory = [
+const foodCategoryList = [
     {
         title: 'Breakfast',
         image: imageCategory.breakfast
@@ -40,7 +40,16 @@ const foodCategory = [
     {
         title: 'Popular',
         image: imageCategory.popular
-    }
+    },
+    {
+        title: 'Hearty Soup',
+        image: imageCategory.soup
+    },
+    {
+        title: 'Beverages',
+        image: imageCategory.icetea
+    },
+    
 ];
 
-export default foodCategory;
+export default foodCategoryList;

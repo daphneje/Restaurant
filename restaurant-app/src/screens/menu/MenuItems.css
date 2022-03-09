@@ -1,7 +1,37 @@
 .app_category_container {
     padding: 20px;
-    display: flex;
-    flex-wrap:wrap;    
-    justify-content: flex-start;
-    background-color: aquamarine;
+    /* display: flex; */
+    /* flex-wrap:wrap;     */
+    justify-content: space-evenly;
+    /* background-color: aquamarine; */
 }
+.app_food_items {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    width: 30rem;
+
+}
+.app_category_image {
+    margin: auto;
+}
+.p_category_title {
+    font-size: 1.2rem;
+}
+
+.p_category_price {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+button {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.1rem;
+    margin: 0.2rem;
+    border-radius: 0.5rem;
+    border: 0.1rem #404040 solid;
+    background-color: lightblue;
+    width: 90%;
+    cursor: pointer;
+  }
