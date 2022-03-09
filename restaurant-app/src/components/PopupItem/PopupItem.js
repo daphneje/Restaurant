@@ -1,6 +1,11 @@
 import React from 'react'
 
-const PopupItem = () => {
+import { useParams } from 'react-router-dom'
+
+
+
+
+const PopupItem = (cartItems,addItem, removeItem) => {
   return (
     <div>
       

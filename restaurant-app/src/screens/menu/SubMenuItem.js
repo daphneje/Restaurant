@@ -2,20 +2,19 @@ import React from 'react'
 import './MenuItems.css'
 import { useParams } from 'react-router-dom'
 
-// import {foodItem} from '../../constants'
-// import Item from '../../components/Item/Item'
+// import { useState } from 'react'
 
-const MenuItems = ({foodItem, addItem}) => {
-  // const {addItems} = addItem;
-
+const SubMenuItem = ({foodItem, addItem}) => {
+  
   const {foodItemList} = foodItem
   const { id } = useParams();
-  const listMenu = foodItemList.filter(t => t.category === id)
+  const sublistMenu = foodItemList.filter(t => t.subCategory === id )
   
+ 
   return (
     <div className='app_category_container'>
       <div className='app_food_items'>
-      {listMenu.map((product)=> (
+      {sublistMenu.map((product)=> (
         <div key = {product.id}>
           <img className='app_category_image' src={product.image} alt=''/>
           <p className='p_category_title'>{product.title}</p>
@@ -30,4 +29,4 @@ const MenuItems = ({foodItem, addItem}) => {
   )
 }
 
-export default MenuItems
+export default SubMenuItem

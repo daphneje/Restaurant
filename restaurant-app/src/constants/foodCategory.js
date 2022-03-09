@@ -26,6 +26,22 @@ const foodCategoryList = [
         image: imageCategory.ribs
     },
     {
+        title: 'Appetizers',
+        image: imageCategory.appetizers
+    },
+    {
+        title: 'Chef',
+        image: imageCategory.chef_pick
+    },
+    {
+        title: 'Economical',
+        image: imageCategory.economical
+    },
+    {
+        title: 'Popular',
+        image: imageCategory.popular
+    },
+    {
         title: 'Hearty Soup',
         image: imageCategory.soup
     },
