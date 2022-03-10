@@ -6,7 +6,7 @@ import PopUpItem from "../../components/PopupItem/PopupItem";
 // import {foodItem} from '../../constants'
 // import Item from '../../components/Item/Item'
 
-const MenuItems = ({ foodItem, addItem, removeItem}) => {
+  const MenuItems = ({ foodItem, addItem, removeItem, cartItems}) => {
 
   const [popUpItem, setPopUpItem] = useState(false);
   const [product , selectProduct] = useState(null);
@@ -43,6 +43,7 @@ const MenuItems = ({ foodItem, addItem, removeItem}) => {
                 product={product}
                 addItem = {addItem}
                 removeItem = {removeItem}
+                cartItems = {cartItems}
               />
       </div>
     </div>
