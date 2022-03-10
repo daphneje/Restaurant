@@ -1,7 +1,7 @@
 import React, {useState}  from 'react';
 import './MenuItems.css'
 import { useParams } from 'react-router-dom'
-import PopUpItem from '../../components/PopupItem/PopUpItem';
+import PopUpItem from '../../components/PopupItem/PopupItem';
 
 // import {foodItem} from '../../constants'
 // import Item from '../../components/Item/Item'
