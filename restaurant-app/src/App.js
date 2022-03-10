@@ -1,5 +1,5 @@
 import React, {useState}  from 'react';
-import {NavBar,PopUpItem} from './components'
+import {NavBar} from './components'
 import {BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 // import Cart from './components/Cart/Cart';
@@ -17,14 +17,10 @@ const foodItem = {foodItemList}
 function App() {
 
 const [cartItems, setCartItems] = useState([]);
-const [popUpItem, setPopUpItem] = useState("modal_off")
-
 
 const addItem = (product) => {
-  
   // console.log(cartItems)
   const exist = cartItems.find((item)=> item.id === product.id );
-  
   if (exist) {
     setCartItems (
       cartItems.map((item)=> item.id === product.id ? 
@@ -35,7 +31,6 @@ const addItem = (product) => {
     setCartItems([...cartItems, {...product, qty: 1}]);
     // console.log(cartItems)
   }
-  
 };
 const removeItem = (pdt) => {
   const exist = cartItems.find((x) => x.id === pdt.id);
@@ -58,8 +53,7 @@ const removeItem = (pdt) => {
         foodItem = {foodItem} 
         cartItems = {cartItems}
         addItem={addItem}
-        removeItem={removeItem}
-        />
+        removeItem={removeItem}/>
       </div>
     </Router>
   );

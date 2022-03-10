@@ -4,7 +4,7 @@ import {Route, Routes} from 'react-router-dom'
 import { CategoryBar, Cart, NavBar } from '../components'
 
 
-const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem,findProductInCart,openModal}) => {
+const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem}) => {
 
   return (
     <div className='content'>
@@ -15,7 +15,7 @@ const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem,find
         <Route path='/menu/:id' element = {<>
         <CategoryBar/> 
      <div>
-     <MenuItems foodItem = {foodItem} addItem={addItem} cartItems={cartItems} findProductInCart={findProductInCart} openModal = {openModal}/>
+     <MenuItems foodItem = {foodItem} addItem={addItem} cartItems={cartItems}/>
      </div>
         
        

@@ -1,20 +1,19 @@
-import React from 'react'
+import React from "react";
 
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 
-
-
-
-const PopUpItem = ({modal, manageItemQuantity, addInstruction, product}) => {
-
-  if (!modal){
-    return null
+const PopUpItem = ({
+  modal,
+  modalClose,
+  manageItemQuantity,
+  addInstruction,
+  product,
+}) => {
+  if (!modal) {
+    return null;
   }
 
-  return(
-    <div>CLICKED</div>
-    )
-  
-}
+  return <button onClick={modalClose}> Press</button>;
+};
 
-export default PopUpItem
+export default PopUpItem;

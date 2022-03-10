@@ -15,6 +15,12 @@ const MenuItems = ({foodItem, addItem, cartItems}) => {
   const { id } = useParams();
   const listMenu = foodItemList.filter(t => t.category === id || t.subCategory === id)
 
+  function searchCartForProduct(product){
+    if(cartItems.find((item)=>item.id === product.id) &&cartItems.map((item)=> item.id === product.id )){
+      return true;
+    }
+   
+  }
 
 
   return (
@@ -27,11 +33,15 @@ const MenuItems = ({foodItem, addItem, cartItems}) => {
           <p className='p_category_price'>${product.unitPrice.toFixed(2)}</p>
           <button onClick={()=>{
             addItem(product); 
-            setPopUpItem(true); 
+            setPopUpItem(true);  
             }}>
             Add To Cart
           </button>
-            <PopUpItem modal = {popUpItem}/>
+            {searchCartForProduct(product)? 
+            <PopUpItem 
+            modal = {popUpItem} 
+            modalClose = {()=> setPopUpItem(false)} 
+            product = {product} />:null}
         </div>
         
       ) )}
