@@ -8,11 +8,11 @@ const Cart = ({cartItems, addItem, removeItem}) => {
   return (
     <div className='block'>
         <div className='app_cart_header'>Order Items</div>
-        {cartItems.length === 0 && (<div>No Order Items</div>
-        )}
+        {cartItems.length === 0 && (<div>No Order Items</div>)}
         <div>
             {cartItems.map((item)=>(
-                <div key = {item.id} className='app_checkout_list'>
+                item.qty <= 0?
+               null: <div key = {item.id} className='app_checkout_list'>
                     <div className='col-1'>{item.title}</div>
                     <div className='col-2'>
                         <button onClick={()=> removeItem(item)}>
@@ -25,7 +25,7 @@ const Cart = ({cartItems, addItem, removeItem}) => {
                     <div className='col-2 text-right' >
                         {item.qty} x ${item.unitPrice.toFixed(2)}
                     </div>
-                </div>
+                </div> 
             ))}
         </div>
         {cartItems.length !== 0 && (

@@ -11,10 +11,8 @@ const PopUpItem = ({
   product,
   addItem,
   removeItem,
-  cartItems
+  cartItems,
 }) => {
-
-  
   
   const showHideClassName = modal
     ? "modal display-block"
@@ -30,13 +28,11 @@ const PopUpItem = ({
           <p className="p_category_title">{product.title}</p>
           <p className="p_category_price">${product.unitPrice.toFixed(2)}</p>
           <p className="p_category_price">{product.description}</p>
-          <div className = "counter">
-          <button onClick={()=> addItem(product)}>+</button>
-           <div>
-             {cartItems.find((item)=> item.id === product.id ).qty}
-           </div>
-          <button onClick={()=> removeItem(product)}>-</button>
-            </div>
+          <div className="counter">
+            <button onClick={() => addItem(product)}>+</button>
+            <div>{cartItems.find((item) => item.id === product.id).qty}</div>
+            <button onClick={() => removeItem(product)}>-</button>
+          </div>
         </div>
         <button type="button" class="button" onClick={modalClose}>
           Confirm
