@@ -5,12 +5,16 @@ import { useParams } from 'react-router-dom'
 
 
 
-const PopupItem = (cartItems,addItem, removeItem) => {
-  return (
-    <div>
-      
-    </div>
-  )
+const PopUpItem = ({modal, manageItemQuantity, addInstruction, product}) => {
+
+  if (!modal){
+    return null
+  }
+
+  return(
+    <div>CLICKED</div>
+    )
+  
 }
 
-export default PopupItem
+export default PopUpItem

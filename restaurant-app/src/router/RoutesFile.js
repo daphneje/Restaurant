@@ -1,10 +1,10 @@
 import React from 'react'
-import {Main, MenuItems, Splash,SubMenuItem} from '../screens'
+import {Main, MenuItems, Splash} from '../screens'
 import {Route, Routes} from 'react-router-dom'
-import { CategoryBar, Cart, NavBar, PopupItem } from '../components'
+import { CategoryBar, Cart, NavBar } from '../components'
 
 
-const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem}) => {
+const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem,findProductInCart,openModal}) => {
 
   return (
     <div className='content'>
@@ -15,9 +15,7 @@ const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem}) =>
         <Route path='/menu/:id' element = {<>
         <CategoryBar/> 
      <div>
-     <MenuItems foodItem = {foodItem} addItem={addItem} />
-        <SubMenuItem foodItem = {foodItem} addItem={addItem} />
-        <PopupItem cartItems = {cartItems} removeItem = {removeItem} addItem = {addItem}/>
+     <MenuItems foodItem = {foodItem} addItem={addItem} cartItems={cartItems} findProductInCart={findProductInCart} openModal = {openModal}/>
      </div>
         
        

@@ -1,13 +1,13 @@
 import CategoryBar from './CategoryBar/CategoryBar'
 import CheckoutBar from './CheckoutBar/CheckoutBar'
 import NavBar from './NavBar/NavBar'
-import PopupItem from './PopupItem/PopupItem'
+import PopUpItem from './PopupItem/PopUpItem'
 import Cart from './Cart/Cart'
 
 export {
     CategoryBar,
     CheckoutBar,
     NavBar,
-    PopupItem,
+    PopUpItem,
     Cart
 };
