@@ -1,53 +1,52 @@
-import React, {useState}  from 'react';
-import './MenuItems.css'
-import { useParams } from 'react-router-dom'
-import PopUpItem from '../../components/PopupItem/PopupItem';
+import React, { useState } from "react";
+import "./MenuItems.css";
+import { useParams } from "react-router-dom";
+import PopUpItem from "../../components/PopupItem/PopupItem";
 
 // import {foodItem} from '../../constants'
 // import Item from '../../components/Item/Item'
 
-const MenuItems = ({foodItem, addItem, cartItems}) => {
- 
-  const [product, setProduct] = useState({})
-  const [popUpItem, setPopUpItem] = useState(false)
+const MenuItems = ({ foodItem, addItem, removeItem}) => {
 
-  const {foodItemList} = foodItem
+  const [popUpItem, setPopUpItem] = useState(false);
+  const [product , selectProduct] = useState(null);
+
+  const { foodItemList } = foodItem;
   const { id } = useParams();
-  const listMenu = foodItemList.filter(t => t.category === id || t.subCategory === id)
-
-  function searchCartForProduct(product){
-    if(cartItems.find((item)=>item.id === product.id) &&cartItems.map((item)=> item.id === product.id )){
-      return true;
-    }
-   
-  }
-
+  const listMenu = foodItemList.filter(
+    (t) => t.category === id || t.subCategory === id
+  );
 
   return (
-    <div className='app_category_container'>
-      <div className='app_food_items'>
-      {listMenu.map((product)=> (
-        <div key = {product.id}>
-          <img className='app_category_image' src={product.image} alt=''/>
-          <p className='p_category_title'>{product.title}</p>
-          <p className='p_category_price'>${product.unitPrice.toFixed(2)}</p>
-          <button onClick={()=>{
-            addItem(product); 
-            setPopUpItem(true);  
-            }}>
-            Add To Cart
-          </button>
-            {searchCartForProduct(product)? 
-            <PopUpItem 
-            modal = {popUpItem} 
-            modalClose = {()=> setPopUpItem(false)} 
-            product = {product} />:null}
-        </div>
-        
-      ) )}
-        </div> 
+    <div className="app_category_container">
+      <div className="app_food_items">
+        {listMenu.map((product) => (
+          <div key={product.id}>
+            <img className="app_category_image" src={product.image} alt="" />
+            <p className="p_category_title">{product.title}</p>
+            <p className="p_category_price">${product.unitPrice.toFixed(2)}</p>
+            <button
+              onClick={() => {
+                addItem(product);
+               selectProduct(product)
+                setPopUpItem(true);
+              }}
+            >
+              Add To Cart
+            </button>
+             
+          </div>
+        ))}
+         <PopUpItem
+                modal={popUpItem}
+                modalClose={() => setPopUpItem(false)}
+                product={product}
+                addItem = {addItem}
+                removeItem = {removeItem}
+              />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MenuItems
+export default MenuItems;

@@ -15,7 +15,7 @@ const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem}) =>
         <Route path='/menu/:id' element = {<>
         <CategoryBar/> 
      <div>
-     <MenuItems foodItem = {foodItem} addItem={addItem} cartItems={cartItems}/>
+     <MenuItems foodItem = {foodItem} addItem={addItem} removeItem = {removeItem} cartItems={cartItems}/>
      </div>
         
        
