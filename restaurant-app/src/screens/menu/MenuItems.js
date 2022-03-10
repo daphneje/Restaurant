@@ -31,7 +31,7 @@ const MenuItems = ({foodItem, addItem, cartItems}) => {
             }}>
             Add To Cart
           </button>
-          <PopUpItem modal = {popUpItem}/>
+            <PopUpItem modal = {popUpItem}/>
         </div>
         
       ) )}
