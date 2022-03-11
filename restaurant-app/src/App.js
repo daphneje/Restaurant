@@ -16,7 +16,6 @@ const foodItem = { foodItemList };
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
-  const [counter, setCounter] = useState(0);
 
   const addItem = (product) => {
     // console.log(cartItems)
