@@ -14,6 +14,14 @@ const PopUpItem = ({
   cartItems,
 }) => {
   
+  function showQuantity(cartItems, product){
+    const searchItem = cartItems.find((item) => item.id === product.id)
+    if(!searchItem){
+      return 0
+    }
+      return cartItems.find((item) => item.id === product.id).qty
+  }
+
   const showHideClassName = modal
     ? "modal display-block"
     : "modal display-none";
@@ -30,7 +38,7 @@ const PopUpItem = ({
           <p className="p_category_price">{product.description}</p>
           <div className="counter">
             <button onClick={() => addItem(product)}>+</button>
-            <div>{cartItems.find((item) => item.id === product.id).qty}</div>
+            <div>{showQuantity(cartItems, product)}</div>
             <button onClick={() => removeItem(product)}>-</button>
           </div>
         </div>

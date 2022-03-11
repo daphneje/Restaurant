@@ -35,9 +35,8 @@ function App() {
   const removeItem = (pdt) => {
     const exist = cartItems.find((x) => x.id === pdt.id);
     if (exist.qty <= 1) {
-      setCartItems(cartItems.map((x) =>
-      x.id === pdt.id ? { ...exist, qty: 0 } : x
-    ));
+    //   
+    setCartItems(cartItems.filter((x) => x.id !== pdt.id));
     } else {
       setCartItems(
         cartItems.map((x) =>
