@@ -5,18 +5,17 @@ const Cart = ({cartItems, addItem, removeItem}) => {
 
   const subTotal = cartItems.reduce((a, c) => a + c.qty * c.unitPrice, 0);
 
-  function noOrdersFound(cartItems){
+  function noOrdersFoundMessage(cartItems){
       if(cartItems.find((item) => !item.qty ==0)){
           return null
-      }else{
-        return <div>No Order Items</div>
       }
+      return <div>No Order Items</div>
   }
 
   return (
     <div className='block'>
         <div className='app_cart_header'>Order Items</div>
-        {noOrdersFound(cartItems)}
+        {noOrdersFoundMessage(cartItems)}
         <div>
             {cartItems.map((item)=>(
                 item.qty <= 0?
