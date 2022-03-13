@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import "./PopupItem.css";
-import { useParams } from "react-router-dom";
-import { useState } from "react";
+// import { useParams } from "react-router-dom";
+// import { useState } from "react";
 
 const PopUpItem = ({
   modal,
@@ -12,14 +12,32 @@ const PopUpItem = ({
   addItem,
   removeItem,
   cartItems,
+  itemInCart,
+  itemExists,
+  addSpecialInstruction
 }) => {
   
+  const [instruction, setInstruction]= useState("")
+
   function showQuantity(cartItems, product){
     const searchItem = cartItems.find((item) => item.id === product.id)
     if(!searchItem){
       return 0
     }
       return cartItems.find((item) => item.id === product.id).qty
+  }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    modalClose()
+    addSpecialInstruction(product,instruction)
+    setInstruction(itemExists(cartItems, product).instruction)
+    
+  }
+  function handleChange(event){
+    event.preventDefault();
+    setInstruction(event.target.value)
+    
   }
 
   const showHideClassName = modal
@@ -36,15 +54,23 @@ const PopUpItem = ({
           <p className="p_category_title">{product.title}</p>
           <p className="p_category_price">${product.unitPrice.toFixed(2)}</p>
           <p className="p_category_price">{product.description}</p>
+
           <div className="counter">
             <button onClick={() => addItem(product)}>+</button>
             <div>{showQuantity(cartItems, product)}</div>
             <button onClick={() => removeItem(product)}>-</button>
           </div>
         </div>
-        <button type="button" class="button" onClick={modalClose}>
+        <form>
+          <label>
+            Add Instruction
+            <input type = "text" value= {instruction} onChange={handleChange} />
+          </label>
+          <input type="submit" value="Submit" onClick={handleSubmit} />
+        </form>
+        {/* <button type="button" class="button" onClick={modalClose}>
           Confirm
-        </button>
+        </button> */}
       </section>
     </div>
   );
