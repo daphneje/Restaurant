@@ -5,8 +5,8 @@ import "./CategoryBar.css"
 
 const CategoryBar = ({foodCategory}) => {
   const {data} = foodCategory;
-  console.log (foodCategory)
-  console.log (data)
+  // console.log (foodCategory)
+  // console.log (data)
 
   return (
     <>
