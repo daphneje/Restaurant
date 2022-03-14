@@ -8,8 +8,14 @@ import "./App.css";
 import RoutesFile from "./router/RoutesFile";
 import API from "./api";
 
+<<<<<<< HEAD
 // const { testConnection} = require('./models');
 // testConnection();
+=======
+const { testConnection} = require('./models');
+
+testConnection();
+>>>>>>> 68ddfbd9c9bf6340d96d33fc4b27365aa93cd71c
 
 // const foodCategory = { foodCategoryList };
 // let foodCategory = [];
