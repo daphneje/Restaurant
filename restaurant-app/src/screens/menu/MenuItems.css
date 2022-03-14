@@ -6,7 +6,7 @@
     /* background-color: aquamarine; */
 }
 .app_food_items {
-    background-color:aliceblue;
+    /* background-color:aliceblue; */
     display: flex;
     flex-wrap:wrap; 
     justify-content: space-evenly;

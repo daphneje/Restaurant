@@ -1,0 +1,17 @@
+.app_category_bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    justify-content: center;
+    /* align-items: center; */
+    overflow-x: auto;
+}
+
+.p_category_box {
+    margin: 0.2rem;
+    height: 3rem;
+    width: 8rem;
+    background-color: lightgreen;
+    border-radius: 10px;
+    font-weight: 500;
+}
