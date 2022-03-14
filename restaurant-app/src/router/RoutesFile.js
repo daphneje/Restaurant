@@ -23,7 +23,7 @@ const RoutesFile = ({
           path="/menu/:id"
           element={
             <>
-              <CategoryBar />
+              <CategoryBar foodCategory={foodCategory} />
               <div>
                 <MenuItems
                   foodItem={foodItem}

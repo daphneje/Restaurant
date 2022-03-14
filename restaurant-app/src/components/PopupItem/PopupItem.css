@@ -10,13 +10,20 @@
   .modal-main {
     position:fixed;
     background: white;
-    width: 30%;
+    width: 50%;
     height: 70%;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    padding: 10px;
+    
   }
   
+  .p_modal_title {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
   .display-block {
     display: block;
   }
@@ -25,6 +32,6 @@
     display: none;
   }
   
-  .button{
-      width: 20%
+  .app_modal_button button {
+      width: 30%
   }

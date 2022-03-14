@@ -1,25 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { NavBar } from "./components";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 // import Cart from './components/Cart/Cart';
-import { foodCategoryList } from "./constants";
-import { foodItemList } from "./constants";
+// import { foodCategoryList } from "./constants";
+// import { foodItemList } from "./constants";
 import RoutesFile from "./router/RoutesFile";
+import API from "./api";
 
 // const { testConnection} = require('./models');
 
 // testConnection();
 
-const foodCategory = { foodCategoryList };
-const foodItem = { foodItemList };
+// const foodCategory = { foodCategoryList };
+// let foodCategory = [];
+// const foodItem = { foodItemList };
 
 function App() {
+
+  const [foodCategory, setFoodCategory] = useState({});
+  const [foodItem, setFoodItem] = useState({});
+
+  useEffect( ()=> {
+    const fetchdata1 = async()=>{
+    const res = await API.get("/itemCategories")
+    setFoodCategory(res.data);
+    };
+
+    const fetchdata2 = async()=>{
+      const res2 = await API.get("/items")
+      setFoodItem(res2.data);
+    };
+    fetchdata1();
+    fetchdata2();
+  },[]);
+
+
   const [cartItems, setCartItems] = useState([]);
   const [cartItemExists, setCartItemExists] = useState();
 
   function itemExists(cartItems, product) {
-    const exist = cartItems.find((item) => item.id === product.id);
+    const exist = cartItems.find((item) => item.itemId === product.itemId);
     if (exist) {
       return exist;
     }
@@ -29,7 +50,7 @@ function App() {
   const addSpecialInstruction = (product, instruction) => {
       setCartItems(
         cartItems.map((item) =>
-          item.id === product.id ? { ...item, instruction: instruction } : item
+          item.itemId === product.itemId ? { ...item, instruction: instruction } : item
         )
       );
     } 
@@ -41,7 +62,7 @@ function App() {
     if (exist) {
       setCartItems(
         cartItems.map((item) =>
-          item.id === product.id ? { ...exist, qty: exist.qty + 1 } : item
+          item.itemId === product.itemId ? { ...exist, qty: exist.qty + 1 } : item
         )
       );
     } else {
@@ -53,15 +74,16 @@ function App() {
     const exist = itemExists(cartItems, pdt);
     if (exist.qty <= 1) {
       setCartItemExists(false);
-      setCartItems(cartItems.filter((x) => x.id !== pdt.id));
+      setCartItems(cartItems.filter((x) => x.itemId !== pdt.itemId));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === pdt.id ? { ...exist, qty: exist.qty - 1 } : x
+          x.id === pdt.itemId ? { ...exist, qty: exist.qty - 1 } : x
         )
       );
     }
   };
+
 
   return (
     <Router>
