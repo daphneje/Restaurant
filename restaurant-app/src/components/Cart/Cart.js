@@ -31,7 +31,7 @@ const Cart = ({cartItems, addItem, removeItem}) => {
                         </button>
                     </div>
                     <div className='col-2 text-right' >
-                        {item.qty} x ${item.unitPrice.toFixed(2)}
+                        {item.qty} x ${item.unitPrice}
                     </div>
                 </div> 
                <div>Special Instruction: {item.instruction}</div>
@@ -43,7 +43,7 @@ const Cart = ({cartItems, addItem, removeItem}) => {
           <hr/>
            <div className="app_checkout_row">
               <div className="col-1">Sub Total:</div>
-              <div className="col-2 text-right">${subTotal.toFixed(2)}</div>
+              <div className="col-2 text-right">${subTotal}</div>
             </div>
             <hr/>
             <div className='app_cart_checkout'>

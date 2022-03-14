@@ -20,11 +20,11 @@ const PopUpItem = ({
   const [instruction, setInstruction]= useState("")
 
   function showQuantity(cartItems, product){
-    const searchItem = cartItems.find((item) => item.id === product.id)
+    const searchItem = cartItems.find((item) => item.itemId === product.itemId)
     if(!searchItem){
       return 0
     }
-      return cartItems.find((item) => item.id === product.id).qty
+      return cartItems.find((item) => item.itemId === product.itemId).qty
   }
 
   function handleSubmit(event){
@@ -52,7 +52,7 @@ const PopUpItem = ({
         <div>
           <img className="app_category_image" src={product.image} alt="" />
           <p className="p_category_title">{product.title}</p>
-          <p className="p_category_price">${product.unitPrice.toFixed(2)}</p>
+          <p className="p_category_price">${product.unitPrice}</p>
           <p className="p_category_price">{product.description}</p>
 
           <div className="counter">
