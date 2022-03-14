@@ -6,8 +6,11 @@
 }
 .app_category_items {
     /* background-color:aliceblue; */
+    display: flex;
+    justify-content: space-evenly;
     font-size: 1.5rem;
     margin-top: 10px;
+    width: 15rem;
 }
 
 .app_category_image {
@@ -22,5 +25,7 @@
 
 .p_category_title {
     margin-top: -5px;
+    font-size: 1.2rem;
+
 }
 

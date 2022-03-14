@@ -11,11 +11,15 @@ import PopUpItem from "../../components/PopupItem/PopupItem";
   const [popUpItem, setPopUpItem] = useState(false);
   const [product , selectProduct] = useState(null);
 
-  const { foodItemList } = foodItem;
+  const  {data}  = foodItem;
   const { id } = useParams();
-  const listMenu = foodItemList.filter(
-    (t) => t.category === id || t.subCategory === id
+
+  // console.log(id,data)
+  const listMenu = data.filter(
+    t => t.itemCategoryId == id 
+    // (t) => t.itemCategoryId === id || t.subCategory === id
   );
+  // console.log(listMenu)
 
   return (
     <div className="app_category_container">
@@ -24,7 +28,7 @@ import PopUpItem from "../../components/PopupItem/PopupItem";
           <div key={product.id}>
             <img className="app_category_image" src={product.image} alt="" />
             <p className="p_category_title">{product.title}</p>
-            <p className="p_category_price">${product.unitPrice.toFixed(2)}</p>
+            <p className="p_category_price">${product.unitPrice}</p>
             <button
               onClick={() => {
                 addItem(product);

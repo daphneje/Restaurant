@@ -1,20 +1,40 @@
-import React, { useState } from "react";
-import { NavBar } from "./components";
+import React, { useState, useEffect } from "react";
+//import { NavBar } from "./components";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 // import Cart from './components/Cart/Cart';
-import { foodCategoryList } from "./constants";
-import { foodItemList } from "./constants";
+// import { foodCategoryList } from "./constants";
+// import { foodItemList } from "./constants";
 import RoutesFile from "./router/RoutesFile";
+import API from "./api";
 
 // const { testConnection} = require('./models');
-
 // testConnection();
 
-const foodCategory = { foodCategoryList };
-const foodItem = { foodItemList };
+// const foodCategory = { foodCategoryList };
+// let foodCategory = [];
+// const foodItem = { foodItemList };
 
 function App() {
+
+  const [foodCategory, setFoodCategory] = useState({});
+  const [foodItem, setFoodItem] = useState({});
+
+  useEffect( ()=> {
+    const fetchdata1 = async()=>{
+    const res = await API.get("/itemCategories")
+    setFoodCategory(res.data);
+    };
+
+    const fetchdata2 = async()=>{
+      const res2 = await API.get("/items")
+      setFoodItem(res2.data);
+    };
+    fetchdata1();
+    fetchdata2();
+  },[]);
+
+
   const [cartItems, setCartItems] = useState([]);
 
   const addItem = (product) => {
@@ -45,6 +65,7 @@ function App() {
       );
     }
   };
+
 
   return (
     <Router>

@@ -12,14 +12,17 @@ const RoutesFile = ({foodCategory, foodItem, cartItems, addItem, removeItem}) =>
       <Routes>
         <Route path='/' element = {<Splash/>} />
         <Route path='/main' element = {<Main foodCategory = {foodCategory}/>} />
-        <Route path='/menu/:id' element = {<>
-        <CategoryBar/> 
-     <div>
-     <MenuItems foodItem = {foodItem} addItem={addItem} removeItem = {removeItem} cartItems={cartItems}/>
-     </div>
-        
-       
-        
+        <Route path='/menu/:id' element = {
+        <>
+        <CategoryBar foodCategory = {foodCategory} /> 
+        <div>
+          <MenuItems 
+          foodItem = {foodItem}
+          addItem={addItem} 
+          removeItem = {removeItem} 
+          cartItems={cartItems}/>
+        </div>
+
         </>} />
 
         <Route path='/cart' element={<Cart cartItems={cartItems} addItem={addItem} removeItem={removeItem}/>}/>
