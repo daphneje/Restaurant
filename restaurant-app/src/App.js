@@ -16,7 +16,6 @@ const foodItem = { foodItemList };
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
-  const [cartItemExists, setCartItemExists] = useState();
 
   function itemExists(cartItems, product) {
     const exist = cartItems.find((item) => item.id === product.id);
@@ -35,8 +34,6 @@ function App() {
     } 
 
   const addItem = (product) => {
-    setCartItemExists(true);
-    // console.log(cartItems)
     const exist = itemExists(cartItems, product);
     if (exist) {
       setCartItems(
@@ -52,7 +49,6 @@ function App() {
   const removeItem = (pdt) => {
     const exist = itemExists(cartItems, pdt);
     if (exist.qty <= 1) {
-      setCartItemExists(false);
       setCartItems(cartItems.filter((x) => x.id !== pdt.id));
     } else {
       setCartItems(
@@ -72,7 +68,6 @@ function App() {
           cartItems={cartItems}
           addItem={addItem}
           removeItem={removeItem}
-          itemInCart = {()=> setCartItemExists(false)}
           itemExists = {itemExists}
           addSpecialInstruction = {addSpecialInstruction}
         />

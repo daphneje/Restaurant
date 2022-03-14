@@ -11,7 +11,6 @@ const MenuItems = ({
   addItem,
   removeItem,
   cartItems,
-  itemInCart,
   itemExists,
   addSpecialInstruction,
 }) => {
@@ -32,6 +31,7 @@ const MenuItems = ({
             <img className="app_category_image" src={product.image} alt="" />
             <p className="p_category_title">{product.title}</p>
             <p className="p_category_price">${product.unitPrice.toFixed(2)}</p>
+
             <button
               onClick={() => {
                 addItem(product);
@@ -50,7 +50,6 @@ const MenuItems = ({
           addItem={addItem}
           removeItem={removeItem}
           cartItems={cartItems}
-          itemInCart={itemInCart}
           itemExists={itemExists}
           addSpecialInstruction ={addSpecialInstruction}
         />

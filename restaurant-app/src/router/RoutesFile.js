@@ -9,7 +9,6 @@ const RoutesFile = ({
   cartItems,
   addItem,
   removeItem,
-  itemInCart,
   itemExists,
   addSpecialInstruction
 }) => {
@@ -30,7 +29,6 @@ const RoutesFile = ({
                   addItem={addItem}
                   removeItem={removeItem}
                   cartItems={cartItems}
-                  itemInCart={itemInCart}
                   itemExists ={itemExists}
                   addSpecialInstruction ={addSpecialInstruction}
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./PopupItem.css";
 // import { useParams } from "react-router-dom";
 // import { useState } from "react";
@@ -6,38 +6,33 @@ import "./PopupItem.css";
 const PopUpItem = ({
   modal,
   modalClose,
-  manageItemQuantity,
-  addInstruction,
   product,
   addItem,
   removeItem,
   cartItems,
-  itemInCart,
   itemExists,
-  addSpecialInstruction
+  addSpecialInstruction,
 }) => {
+  const [instruction, setInstruction] = useState("");
+
+  function showQuantity(cartItems, product) {
   
-  const [instruction, setInstruction]= useState("")
-
-  function showQuantity(cartItems, product){
-    const searchItem = cartItems.find((item) => item.id === product.id)
-    if(!searchItem){
-      return 0
+    if (!itemExists(cartItems, product)) {
+      return 0;
     }
-      return cartItems.find((item) => item.id === product.id).qty
+    return itemExists(cartItems, product).qty;
   }
 
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
-    modalClose()
-    addSpecialInstruction(product,instruction)
-    setInstruction(itemExists(cartItems, product).instruction)
-    
+    addSpecialInstruction(product, instruction);
+    setInstruction(null);
+    modalClose();
   }
-  function handleChange(event){
+
+  function handleChange(event) {
     event.preventDefault();
-    setInstruction(event.target.value)
-    
+    setInstruction(event.target.value);
   }
 
   const showHideClassName = modal
@@ -61,16 +56,20 @@ const PopUpItem = ({
             <button onClick={() => removeItem(product)}>-</button>
           </div>
         </div>
-        <form>
-          <label>
-            Add Instruction
-            <input type = "text" value= {instruction} onChange={handleChange} />
-          </label>
-          <input type="submit" value="Submit" onClick={handleSubmit} />
-        </form>
-        {/* <button type="button" class="button" onClick={modalClose}>
-          Confirm
-        </button> */}
+        {itemExists(cartItems, product) ? (
+          <form>
+            <label>
+              Add Instruction
+              <input type="text" value={instruction} onChange={handleChange} />
+            </label>
+            <input type="submit" value="Submit" onClick={handleSubmit} />
+          </form>
+        ) : (
+          <button type="button" class="button" onClick={modalClose}>
+            Confirm
+          </button>
+        )}
+
       </section>
     </div>
   );
