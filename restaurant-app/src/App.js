@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import { NavBar } from "./components";
+// import { NavBar } from "./components";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 // import Cart from './components/Cart/Cart';
@@ -8,14 +8,9 @@ import "./App.css";
 import RoutesFile from "./router/RoutesFile";
 import API from "./api";
 
-<<<<<<< HEAD
 // const { testConnection} = require('./models');
-// testConnection();
-=======
-const { testConnection} = require('./models');
 
-testConnection();
->>>>>>> 68ddfbd9c9bf6340d96d33fc4b27365aa93cd71c
+// testConnection();
 
 // const foodCategory = { foodCategoryList };
 // let foodCategory = [];
@@ -42,27 +37,44 @@ function App() {
 
 
   const [cartItems, setCartItems] = useState([]);
+  const [cartItemExists, setCartItemExists] = useState();
+
+  function itemExists(cartItems, product) {
+    const exist = cartItems.find((item) => item.id === product.id);
+    if (exist) {
+      return exist;
+    }
+    return false;
+  }
+
+  const addSpecialInstruction = (product, instruction) => {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id ? { ...item, instruction: instruction } : item
+        )
+      );
+    } 
 
   const addItem = (product) => {
+    setCartItemExists(true);
     // console.log(cartItems)
-    const exist = cartItems.find((item) => item.id === product.id);
+    const exist = itemExists(cartItems, product);
     if (exist) {
       setCartItems(
         cartItems.map((item) =>
           item.id === product.id ? { ...exist, qty: exist.qty + 1 } : item
         )
       );
-      // console.log(cartItems)
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
       // console.log(cartItems)
     }
   };
   const removeItem = (pdt) => {
-    const exist = cartItems.find((x) => x.id === pdt.id);
+    const exist = itemExists(cartItems, pdt);
     if (exist.qty <= 1) {
-    //   
-    setCartItems(cartItems.filter((x) => x.id !== pdt.id));
+      setCartItemExists(false);
+      setCartItems(cartItems.filter((x) => x.id !== pdt.id));
     } else {
       setCartItems(
         cartItems.map((x) =>
@@ -82,6 +94,9 @@ function App() {
           cartItems={cartItems}
           addItem={addItem}
           removeItem={removeItem}
+          itemInCart = {()=> setCartItemExists(false)}
+          itemExists = {itemExists}
+          addSpecialInstruction = {addSpecialInstruction}
         />
       </div>
     </Router>

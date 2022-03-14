@@ -19,7 +19,8 @@ const Cart = ({cartItems, addItem, removeItem}) => {
         <div>
             {cartItems.map((item)=>(
                 item.qty <= 0?
-               null: <div key = {item.id} className='app_checkout_list'>
+               null: <>
+               <div key = {item.id} className='app_checkout_list'>
                     <div className='col-1'>{item.title}</div>
                     <div className='col-2'>
                         <button onClick={()=> removeItem(item)}>
@@ -33,6 +34,8 @@ const Cart = ({cartItems, addItem, removeItem}) => {
                         {item.qty} x ${item.unitPrice.toFixed(2)}
                     </div>
                 </div> 
+               <div>Special Instruction: {item.instruction}</div>
+               </>
             ))}
         </div>
         {cartItems.length !== 0 && (

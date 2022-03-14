@@ -6,10 +6,17 @@ import PopUpItem from "../../components/PopupItem/PopupItem";
 // import {foodItem} from '../../constants'
 // import Item from '../../components/Item/Item'
 
-  const MenuItems = ({ foodItem, addItem, removeItem, cartItems}) => {
-
+const MenuItems = ({
+  foodItem,
+  addItem,
+  removeItem,
+  cartItems,
+  itemInCart,
+  itemExists,
+  addSpecialInstruction,
+}) => {
   const [popUpItem, setPopUpItem] = useState(false);
-  const [product , selectProduct] = useState(null);
+  const [product, selectProduct] = useState(null);
 
   const  {data}  = foodItem;
   const { id } = useParams();
@@ -32,23 +39,25 @@ import PopUpItem from "../../components/PopupItem/PopupItem";
             <button
               onClick={() => {
                 addItem(product);
-               selectProduct(product)
+                selectProduct(product);
                 setPopUpItem(true);
               }}
             >
               Add To Cart
             </button>
-             
           </div>
         ))}
-         <PopUpItem
-                modal={popUpItem}
-                modalClose={() => setPopUpItem(false)}
-                product={product}
-                addItem = {addItem}
-                removeItem = {removeItem}
-                cartItems = {cartItems}
-              />
+        <PopUpItem
+          modal={popUpItem}
+          modalClose={() => setPopUpItem(false)}
+          product={product}
+          addItem={addItem}
+          removeItem={removeItem}
+          cartItems={cartItems}
+          itemInCart={itemInCart}
+          itemExists={itemExists}
+          addSpecialInstruction ={addSpecialInstruction}
+        />
       </div>
     </div>
   );
