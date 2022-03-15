@@ -12,7 +12,7 @@ const MenuItems = ({
   removeItem,
   cartItems,
   itemExists,
-  addSpecialInstruction,
+  addItemPopUpScreen,
 }) => {
   const [popUpItem, setPopUpItem] = useState(false);
   const [product, selectProduct] = useState(null);
@@ -34,7 +34,6 @@ const MenuItems = ({
 
             <button
               onClick={() => {
-                addItem(product);
                 selectProduct(product);
                 setPopUpItem(true);
               }}
@@ -51,7 +50,7 @@ const MenuItems = ({
           removeItem={removeItem}
           cartItems={cartItems}
           itemExists={itemExists}
-          addSpecialInstruction ={addSpecialInstruction}
+          addItemPopUpScreen ={addItemPopUpScreen}
         />
       </div>
     </div>

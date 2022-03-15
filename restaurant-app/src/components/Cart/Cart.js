@@ -22,6 +22,7 @@ const Cart = ({cartItems, addItem, removeItem}) => {
                null: <>
                <div key = {item.id} className='app_checkout_list'>
                     <div className='col-1'>{item.title}</div>
+
                     <div className='col-2'>
                         <button onClick={()=> removeItem(item)}>
                             -

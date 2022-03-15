@@ -16,6 +16,7 @@ const foodItem = { foodItemList };
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [totalFoodItems, setTotalFoodItems] = useState(9);
 
   function itemExists(cartItems, product) {
     const exist = cartItems.find((item) => item.id === product.id);
@@ -25,13 +26,45 @@ function App() {
     return false;
   }
 
+  const addItemPopUpScreen = (instruction, count, product) => {
+    const exist = cartItems.find((item) => item.id === product.id);
+
+    if (exist) {
+      if (instruction === null) {
+        setCartItems(
+          cartItems.map((item) =>
+            item.id === product.id ? { ...exist, qty: exist.qty + count } : item
+          )
+        );
+      } else {
+        setCartItems([
+          ...cartItems,
+          {
+            ...product,
+            qty: count,
+            instruction: instruction,
+            id: totalFoodItems + 1,
+          },
+        ]);
+        setTotalFoodItems(totalFoodItems + 1);
+      }
+    } else {
+      setCartItems([
+        ...cartItems,
+        { ...product, qty: count, instruction: instruction },
+      ]);
+    }
+
+    console.log(cartItems);
+  };
+
   const addSpecialInstruction = (product, instruction) => {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id ? { ...item, instruction: instruction } : item
-        )
-      );
-    } 
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === product.id ? { ...item, instruction: instruction } : item
+      )
+    );
+  };
 
   const addItem = (product) => {
     const exist = itemExists(cartItems, product);
@@ -68,8 +101,8 @@ function App() {
           cartItems={cartItems}
           addItem={addItem}
           removeItem={removeItem}
-          itemExists = {itemExists}
-          addSpecialInstruction = {addSpecialInstruction}
+          itemExists={itemExists}
+          addItemPopUpScreen={addItemPopUpScreen}
         />
       </div>
     </Router>

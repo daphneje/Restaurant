@@ -10,7 +10,7 @@ const RoutesFile = ({
   addItem,
   removeItem,
   itemExists,
-  addSpecialInstruction
+  addItemPopUpScreen
 }) => {
   return (
     <div className="content">
@@ -30,7 +30,7 @@ const RoutesFile = ({
                   removeItem={removeItem}
                   cartItems={cartItems}
                   itemExists ={itemExists}
-                  addSpecialInstruction ={addSpecialInstruction}
+                  addItemPopUpScreen ={addItemPopUpScreen}
 
                 />
               </div>

@@ -11,9 +11,22 @@ const PopUpItem = ({
   removeItem,
   cartItems,
   itemExists,
-  addSpecialInstruction,
+  addItemPopUpScreen,
 }) => {
   const [instruction, setInstruction] = useState("");
+  const [count, setCount] = useState(0)
+  const [cartItemIdentifier, setCartItemIdentifier] = useState(0)
+
+  function add(){
+   setCount(count + 1)
+  }
+
+  function subtract(){
+    if(count<1){
+    return null
+    }
+    setCount(count - 1)
+  }
 
   function showQuantity(cartItems, product) {
   
@@ -25,7 +38,11 @@ const PopUpItem = ({
 
   function handleSubmit(event) {
     event.preventDefault();
-    addSpecialInstruction(product, instruction);
+    // addSpecialInstruction(product, instruction);
+    addItemPopUpScreen(instruction,count,product)
+    console.log(instruction)
+    console.log(count)
+
     setInstruction(null);
     modalClose();
   }
@@ -34,6 +51,8 @@ const PopUpItem = ({
     event.preventDefault();
     setInstruction(event.target.value);
   }
+
+
 
   const showHideClassName = modal
     ? "modal display-block"
@@ -51,12 +70,12 @@ const PopUpItem = ({
           <p className="p_category_price">{product.description}</p>
 
           <div className="counter">
-            <button onClick={() => addItem(product)}>+</button>
-            <div>{showQuantity(cartItems, product)}</div>
-            <button onClick={() => removeItem(product)}>-</button>
+            <button onClick={add}>+</button>
+            <div>{count}</div>
+            <button onClick={subtract}>-</button>
           </div>
         </div>
-        {itemExists(cartItems, product) ? (
+        
           <form>
             <label>
               Add Instruction
@@ -64,11 +83,12 @@ const PopUpItem = ({
             </label>
             <input type="submit" value="Submit" onClick={handleSubmit} />
           </form>
-        ) : (
-          <button type="button" class="button" onClick={modalClose}>
+        
+        
+          {/* <button type="button" class="button" onClick={modalClose}>
             Confirm
-          </button>
-        )}
+          </button> */}
+        
 
       </section>
     </div>
