@@ -37,7 +37,7 @@ const Cart = ({cartItems, addItem, removeItem, clearCart}) => {
                     "itemTitle": t.title,
                     "itemUnitPrice": t.unitPrice,
                     "quantity": t.qty,
-                    "specialRequest": "",
+                    "specialRequest": t.instruction,
                     "status": "New"
                     }
                 })
@@ -69,6 +69,7 @@ const Cart = ({cartItems, addItem, removeItem, clearCart}) => {
                null: <>
                <div key = {item.id} className='app_checkout_list'>
                     <div className='col-1'>{item.title}</div>
+
                     <div className='col-2'>
                         <button onClick={()=> removeItem(item)}>
                             -

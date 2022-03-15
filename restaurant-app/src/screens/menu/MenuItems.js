@@ -11,9 +11,8 @@ const MenuItems = ({
   addItem,
   removeItem,
   cartItems,
-  itemInCart,
   itemExists,
-  addSpecialInstruction,
+  addItemPopUpScreen,
 }) => {
   const [popUpItem, setPopUpItem] = useState(false);
   const [product, selectProduct] = useState(null);
@@ -38,7 +37,6 @@ const MenuItems = ({
             <p className="p_category_price">${product.unitPrice}</p>
             <button
               onClick={() => {
-                addItem(product);
                 selectProduct(product);
                 setPopUpItem(true);
               }}
@@ -54,9 +52,8 @@ const MenuItems = ({
           addItem={addItem}
           removeItem={removeItem}
           cartItems={cartItems}
-          itemInCart={itemInCart}
           itemExists={itemExists}
-          addSpecialInstruction ={addSpecialInstruction}
+          addItemPopUpScreen ={addItemPopUpScreen}
         />
       </div>
     </div>

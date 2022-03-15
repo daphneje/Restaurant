@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./PopupItem.css";
 // import { useParams } from "react-router-dom";
 // import { useState } from "react";
@@ -6,39 +6,53 @@ import "./PopupItem.css";
 const PopUpItem = ({
   modal,
   modalClose,
-  manageItemQuantity,
-  addInstruction,
   product,
   addItem,
   removeItem,
   cartItems,
-  itemInCart,
   itemExists,
-  addSpecialInstruction
+  addItemPopUpScreen,
 }) => {
-  
-  const [instruction, setInstruction]= useState("")
+  const [instruction, setInstruction] = useState("");
+  const [count, setCount] = useState(0)
+  const [cartItemIdentifier, setCartItemIdentifier] = useState(0)
 
-  function showQuantity(cartItems, product){
-    const searchItem = cartItems.find((item) => item.itemId === product.itemId)
-    if(!searchItem){
-      return 0
+  function add(){
+   setCount(count + 1)
+  }
+
+  function subtract(){
+    if(count<1){
+    return null
     }
-      return cartItems.find((item) => item.itemId === product.itemId).qty
+    setCount(count - 1)
   }
 
-  function handleSubmit(event){
-    event.preventDefault();
-    modalClose()
-    addSpecialInstruction(product,instruction)
-    setInstruction(itemExists(cartItems, product).instruction)
-    
+  function showQuantity(cartItems, product) {
+  
+    if (!itemExists(cartItems, product)) {
+      return 0;
+    }
+    return itemExists(cartItems, product).qty;
   }
-  function handleChange(event){
+
+  function handleSubmit(event) {
     event.preventDefault();
-    setInstruction(event.target.value)
-    
+    // addSpecialInstruction(product, instruction);
+    addItemPopUpScreen(instruction,count,product)
+    console.log(instruction)
+    console.log(count)
+
+    setInstruction(null);
+    modalClose();
   }
+
+  function handleChange(event) {
+    event.preventDefault();
+    setInstruction(event.target.value);
+  }
+
+
 
   const showHideClassName = modal
     ? "modal display-block"
@@ -55,22 +69,27 @@ const PopUpItem = ({
           <p className="p_category_price">${product.unitPrice}</p>
           <p className="p_category_price">{product.description}</p>
 
-          <div className="app_modal_button">
-            <button onClick={() => addItem(product)}>+</button>
-            <div>{showQuantity(cartItems, product)}</div>
-            <button onClick={() => removeItem(product)}>-</button>
+          <div className="counter">
+            <button onClick={add}>+</button>
+            <div>{count}</div>
+            <button onClick={subtract}>-</button>
           </div>
         </div>
-        <form>
-          <label>
-            Add Instruction
-            <input type = "text" value= {instruction} onChange={handleChange} />
-          </label>
-          <input type="submit" value="Submit" onClick={handleSubmit} />
-        </form>
-        {/* <button type="button" class="button" onClick={modalClose}>
-          Confirm
-        </button> */}
+        
+          <form>
+            <label>
+              Add Instruction
+              <input type="text" value={instruction} onChange={handleChange} />
+            </label>
+            <input type="submit" value="Submit" onClick={handleSubmit} />
+          </form>
+        
+        
+          {/* <button type="button" class="button" onClick={modalClose}>
+            Confirm
+          </button> */}
+        
+
       </section>
     </div>
   );
