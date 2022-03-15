@@ -67,7 +67,7 @@ function App() {
       );
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
-      // console.log(cartItems)
+      console.log(cartItems)
     }
   };
   const removeItem = (pdt) => {
@@ -84,6 +84,9 @@ function App() {
     }
   };
 
+  const clearCart = ()=>{
+    setCartItems([]);
+  }
 
   return (
     <Router>
@@ -97,6 +100,7 @@ function App() {
           itemInCart = {()=> setCartItemExists(false)}
           itemExists = {itemExists}
           addSpecialInstruction = {addSpecialInstruction}
+          clearCart = {clearCart}
         />
       </div>
     </Router>
