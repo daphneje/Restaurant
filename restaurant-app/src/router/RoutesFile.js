@@ -11,7 +11,8 @@ const RoutesFile = ({
   removeItem,
   itemInCart,
   itemExists,
-  addSpecialInstruction
+  addSpecialInstruction,
+  clearCart
 }) => {
   return (
     <div className="content">
@@ -47,6 +48,7 @@ const RoutesFile = ({
               cartItems={cartItems}
               addItem={addItem}
               removeItem={removeItem}
+              clearCart={clearCart}
             />
           }
         />
