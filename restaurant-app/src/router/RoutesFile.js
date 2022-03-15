@@ -10,7 +10,9 @@ const RoutesFile = ({
   addItem,
   removeItem,
   itemExists,
-  addItemPopUpScreen
+  addItemPopUpScreen,
+  addSpecialInstruction,
+  clearCart
 }) => {
   return (
     <div className="content">
@@ -22,7 +24,7 @@ const RoutesFile = ({
           path="/menu/:id"
           element={
             <>
-              <CategoryBar />
+              <CategoryBar foodCategory={foodCategory} />
               <div>
                 <MenuItems
                   foodItem={foodItem}
@@ -31,6 +33,7 @@ const RoutesFile = ({
                   cartItems={cartItems}
                   itemExists ={itemExists}
                   addItemPopUpScreen ={addItemPopUpScreen}
+                  addSpecialInstruction = {addSpecialInstruction}
 
                 />
               </div>
@@ -45,6 +48,7 @@ const RoutesFile = ({
               cartItems={cartItems}
               addItem={addItem}
               removeItem={removeItem}
+              clearCart={clearCart}
             />
           }
         />

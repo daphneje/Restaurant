@@ -1,15 +1,62 @@
 import React from 'react'
+import API from '../../api';
 import './Cart.css'
 
-const Cart = ({cartItems, addItem, removeItem}) => {
+const Cart = ({cartItems, addItem, removeItem, clearCart}) => {
 
   const subTotal = cartItems.reduce((a, c) => a + c.qty * c.unitPrice, 0);
 
   function noOrdersFoundMessage(cartItems){
-      if(cartItems.find((item) => !item.qty ==0)){
+      if(cartItems.find((item) => !item.qty == 0)){
           return null
       }
       return <div>No Order Items</div>
+  }
+
+
+  const checkout = async () => {
+    try {
+        const orderRes = await API.post("/orders", { 
+            "tableId": 18,
+            "createOrder": {
+                "restaurantId": 1,
+                "billAmount": subTotal,
+                "noOfPax": 3,
+                "status": "New"
+            }
+        })
+        if (orderRes.status === 200) {
+            console.log("cartItems", cartItems)
+            alert(`Success! Your Order id is #${orderRes.data.data.orderId}.`)
+           
+            const orderItemRes = await cartItems.map((t) => ( API.post("/orderItems",  
+               {
+                "orderId": orderRes.data.data.orderId,
+                "createOrderItem": {
+                    "itemId": t.itemId,
+                    "itemTitle": t.title,
+                    "itemUnitPrice": t.unitPrice,
+                    "quantity": t.qty,
+                    "specialRequest": t.instruction,
+                    "status": "New"
+                    }
+                })
+            ))
+            
+            clearCart();
+
+            // const orderItemRes = await API.post("/orderItems",  orderPost)
+            console.log("OrderItemRes", orderItemRes)
+        } else {
+            alert('There was an error. Please try again.')
+        }
+        //console.log(orderRes)
+
+        
+
+    } catch(err) {
+        console.log(`Error: ${err.message}`)
+    }
   }
 
   return (
@@ -32,7 +79,7 @@ const Cart = ({cartItems, addItem, removeItem}) => {
                         </button>
                     </div>
                     <div className='col-2 text-right' >
-                        {item.qty} x ${item.unitPrice.toFixed(2)}
+                        {item.qty} x ${item.unitPrice}
                     </div>
                 </div> 
                <div>Special Instruction: {item.instruction}</div>
@@ -48,8 +95,8 @@ const Cart = ({cartItems, addItem, removeItem}) => {
             </div>
             <hr/>
             <div className='app_cart_checkout'>
-            <button>
-                Checkout
+            <button onClick={()=>checkout()}>
+                Submit Order
             </button>
             </div>
         </>)}

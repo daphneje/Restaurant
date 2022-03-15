@@ -1,25 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { NavBar } from "./components";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 // import Cart from './components/Cart/Cart';
-import { foodCategoryList } from "./constants";
-import { foodItemList } from "./constants";
+// import { foodCategoryList } from "./constants";
+// import { foodItemList } from "./constants";
 import RoutesFile from "./router/RoutesFile";
+import API from "./api";
 
 // const { testConnection} = require('./models');
 
 // testConnection();
 
-const foodCategory = { foodCategoryList };
-const foodItem = { foodItemList };
+// const foodCategory = { foodCategoryList };
+// let foodCategory = [];
+// const foodItem = { foodItemList };
 
 function App() {
+
+  const [foodCategory, setFoodCategory] = useState({});
+  const [foodItem, setFoodItem] = useState({});
+
+  useEffect( ()=> {
+    const fetchdata1 = async()=>{
+    const res = await API.get("/itemCategories")
+    setFoodCategory(res.data);
+    };
+
+    const fetchdata2 = async()=>{
+      const res2 = await API.get("/items")
+      setFoodItem(res2.data);
+      console.log(foodItem.length)
+    };
+    fetchdata1();
+    fetchdata2();
+  },[]);
+
+
   const [cartItems, setCartItems] = useState([]);
   const [totalFoodItems, setTotalFoodItems] = useState(9);
 
   function itemExists(cartItems, product) {
-    const exist = cartItems.find((item) => item.id === product.id);
+    const exist = cartItems.find((item) => item.itemId === product.itemId);
     if (exist) {
       return exist;
     }
@@ -27,70 +49,81 @@ function App() {
   }
 
   const addItemPopUpScreen = (instruction, count, product) => {
-    const exist = cartItems.find((item) => item.id === product.id);
+    const exist = cartItems.find((item) => item.itemId === product.itemId);
 
-    if (exist) {
-      if (instruction === null) {
-        setCartItems(
-          cartItems.map((item) =>
-            item.id === product.id ? { ...exist, qty: exist.qty + count } : item
-          )
-        );
+    if(count!==0){
+      if (exist) {
+        if (instruction === "") {
+          setCartItems(
+            cartItems.map((item) =>
+              item.itemId === product.itemId ? { ...exist, qty: exist.qty + count } : item
+            )
+          );
+        } else {
+          setCartItems([
+            ...cartItems,
+            {
+              ...product,
+              qty: count,
+              instruction: instruction,
+              itemId: totalFoodItems + 1,
+            },
+          ]);
+          setTotalFoodItems(totalFoodItems + 1);
+        }
       } else {
         setCartItems([
           ...cartItems,
-          {
-            ...product,
-            qty: count,
-            instruction: instruction,
-            id: totalFoodItems + 1,
-          },
+          { ...product, qty: count, instruction: instruction },
         ]);
-        setTotalFoodItems(totalFoodItems + 1);
       }
-    } else {
-      setCartItems([
-        ...cartItems,
-        { ...product, qty: count, instruction: instruction },
-      ]);
+    }else{
+      return null
     }
+
+    
 
     console.log(cartItems);
   };
 
   const addSpecialInstruction = (product, instruction) => {
-    setCartItems(
-      cartItems.map((item) =>
-        item.id === product.id ? { ...item, instruction: instruction } : item
-      )
-    );
-  };
+      setCartItems(
+        cartItems.map((item) =>
+          item.itemId === product.itemId ? { ...item, instruction: instruction } : item
+        )
+      );
+    } 
 
   const addItem = (product) => {
     const exist = itemExists(cartItems, product);
     if (exist) {
       setCartItems(
         cartItems.map((item) =>
-          item.id === product.id ? { ...exist, qty: exist.qty + 1 } : item
+          item.itemId === product.itemId ? { ...exist, qty: exist.qty + 1 } : item
         )
       );
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
-      // console.log(cartItems)
+      console.log(cartItems)
     }
   };
   const removeItem = (pdt) => {
     const exist = itemExists(cartItems, pdt);
     if (exist.qty <= 1) {
-      setCartItems(cartItems.filter((x) => x.id !== pdt.id));
+    
+      setCartItems(cartItems.filter((x) => x.itemId !== pdt.itemId));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === pdt.id ? { ...exist, qty: exist.qty - 1 } : x
+          x.itemId === pdt.itemId ? { ...exist, qty: exist.qty - 1 } : x
         )
       );
     }
   };
+
+  const clearCart = ()=>{
+    setCartItems([]);
+  }
 
   return (
     <Router>
@@ -103,6 +136,8 @@ function App() {
           removeItem={removeItem}
           itemExists={itemExists}
           addItemPopUpScreen={addItemPopUpScreen}
+          addSpecialInstruction = {addSpecialInstruction}
+          clearCart = {clearCart}
         />
       </div>
     </Router>
