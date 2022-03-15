@@ -53,7 +53,7 @@ function App() {
 
     if(count!==0){
       if (exist) {
-        if (instruction === "") {
+        if (instruction === "" || instruction === null) {
           setCartItems(
             cartItems.map((item) =>
               item.itemId === product.itemId ? { ...exist, qty: exist.qty + count } : item
