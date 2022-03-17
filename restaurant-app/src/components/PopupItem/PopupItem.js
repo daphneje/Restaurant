@@ -7,15 +7,10 @@ const PopUpItem = ({
   modal,
   modalClose,
   product,
-  addItem,
-  removeItem,
-  cartItems,
-  itemExists,
   addItemPopUpScreen,
 }) => {
   const [instruction, setInstruction] = useState("");
   const [count, setCount] = useState(0)
-  const [cartItemIdentifier, setCartItemIdentifier] = useState(0)
 
   function add(){
    setCount(count + 1)
@@ -28,13 +23,6 @@ const PopUpItem = ({
     setCount(count - 1)
   }
 
-  function showQuantity(cartItems, product) {
-  
-    if (!itemExists(cartItems, product)) {
-      return 0;
-    }
-    return itemExists(cartItems, product).qty;
-  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -63,25 +51,25 @@ const PopUpItem = ({
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <div>
+        <div className= 'section-2'>
           <img className="app_category_image" src={product.image} alt="" />
           <p className="p_modal_title">{product.title}</p>
           <p className="p_category_price">${product.unitPrice}</p>
           <p className="p_category_price">{product.description}</p>
 
-          <div className="counter">
-            <button onClick={add}>+</button>
-            <div>{count}</div>
+          <div className='count_button'>
             <button onClick={subtract}>-</button>
+            <div>{count}</div>
+            <button onClick={add}>+</button>
           </div>
         </div>
         
-          <form>
+          <form className = "form">
+            <p>Special Request:</p>
             <label>
-              Add Instruction
-              <input type="text" value={instruction} onChange={handleChange} />
+              <input type="text" className= "text" value={instruction} onChange={handleChange} />
             </label>
-            <input type="submit" value="Submit" onClick={handleSubmit} />
+            <input type="submit" class = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-full h-8" value="Submit" onClick={handleSubmit} />
           </form>
         
         
