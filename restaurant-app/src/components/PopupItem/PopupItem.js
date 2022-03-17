@@ -65,7 +65,7 @@ const PopUpItem = ({
         </div>
         
           <form className = "form">
-            <p>CHANGED</p>
+            <p>Special Request:</p>
             <label>
               <input type="text" className= "text" value={instruction} onChange={handleChange} />
             </label>
