@@ -32,6 +32,7 @@ const PopUpItem = ({
     console.log(count)
 
     setInstruction(null);
+    setCount(0)
     modalClose();
   }
 
