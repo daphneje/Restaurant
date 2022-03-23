@@ -1,8 +1,6 @@
 import React from 'react'
 import './Main.css'
-// import {foodCategory} from '../../constants'
 import { Link } from 'react-router-dom'
-// import imageCategory from '../../constants/imageCategory'
 
 
 const Main = ({foodCategory}) => {
