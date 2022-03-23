@@ -1,3 +1,4 @@
 A restaurant application that enables customers to place food item orders.
 
-Website deployment link: https://restaurant-deploy.herokuapp.com/
+Front-end: https://restaurant-deploy.herokuapp.com/
+Back-end: https://gentle-thicket-13588.herokuapp.com/
