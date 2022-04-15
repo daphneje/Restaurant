@@ -5,7 +5,7 @@
  A restaurant application that enables customers to place food item orders.
 
 ## USER STORIES
-  ### Scrum & Agile Project management: https://trello.com/b/525J8fHa/capstone-project
+  #### Scrum & Agile Project management: https://trello.com/b/525J8fHa/capstone-project
   - Story 1: As a user, I can see the food item image, name and description on the homepage
   - Story 2: As a user, I can select the food item and description of the food item
   - Story 3: As a user, I can select the quantity of the food item.
@@ -18,7 +18,7 @@
 ## TECHNOLOGY USED
 
  ### Frontend
-    - Front-end: https://restaurant-deploy.herokuapp.com/
+   - Front-end: https://restaurant-deploy.herokuapp.com/
       - Axios: To handle communication between front-end and server 
       - React: Framework to craft user interface
       - React Router Dom: Routing between web-pages
@@ -26,7 +26,7 @@
     - Design: https://trello.com/b/525J8fHa/capstone-project
 
  ### Backend
-    - Back-end: https://gentle-thicket-13588.herokuapp.com/
+   - Back-end: https://gentle-thicket-13588.herokuapp.com/
      - Database type: PostgresSQL
      - Host: Heroku PostgresSQL
      - Object-Relational Mapping(ORM): Sequelize library
