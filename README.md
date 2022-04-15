@@ -27,6 +27,7 @@
  ### Frontend 
    - Customer front-end: https://restaurant-deploy.herokuapp.com/
    - Admin front-end: https://gentle-thicket-13588.herokuapp.com/
+    - Admin repo: https://github.com/HuzaifaTP/restaurant-admin
       - Axios: To handle communication between front-end and server 
       - React: Framework to craft user interface
       - React Router Dom: Routing between web-pages
