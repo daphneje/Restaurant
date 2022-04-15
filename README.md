@@ -23,7 +23,7 @@
       - React: Framework to craft user interface
       - React Router Dom: Routing between web-pages
       - TailwindCSS: For certain stylistic interfaces
-    - Design: https://trello.com/b/525J8fHa/capstone-project
+      - Design: https://trello.com/b/525J8fHa/capstone-project
 
  ### Backend
    - Back-end: https://gentle-thicket-13588.herokuapp.com/
@@ -31,4 +31,4 @@
      - Host: Heroku PostgresSQL
      - Object-Relational Mapping(ORM): Sequelize library
      - Express: Managing https requests
-    - Design: https://trello.com/b/525J8fHa/capstone-project
+     - Design: https://trello.com/b/525J8fHa/capstone-project
