@@ -24,7 +24,7 @@
 
 ## TECHNOLOGY 
 
- ### Frontend 
+ ### 1. Frontend 
    - Customer front-end: https://restaurant-deploy.herokuapp.com/
    - Admin front-end: https://gentle-thicket-13588.herokuapp.com
    - Admin repo: https://github.com/HuzaifaTP/restaurant-admin
@@ -34,7 +34,7 @@
       - TailwindCSS: For certain stylistic interfaces
       - Design: https://trello.com/b/525J8fHa/capstone-project
 
- ### Backend
+ ### 2. Backend
    - Repo: https://github.com/HuzaifaTP/restaurant-admin
    - Back-end: https://gentle-thicket-13588.herokuapp.com/
      - Database type: PostgresSQL
