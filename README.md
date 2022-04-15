@@ -1,6 +1,34 @@
 # Restaurant Ordering System
 
-Objective: A restaurant application that enables customers to place food item orders.
+## OBJECTIVE
 
-1. Front-end: https://restaurant-deploy.herokuapp.com/
-2. Back-end: https://gentle-thicket-13588.herokuapp.com/
+ A restaurant application that enables customers to place food item orders.
+
+## USER STORIES
+  ### Scrum & Agile Project management: https://trello.com/b/525J8fHa/capstone-project
+  - Story 1: As a user, I can see the food item image, name and description on the homepage
+  - Story 2: As a user, I can select the food item and description of the food item
+  - Story 3: As a user, I can select the quantity of the food item.
+  - Story 4: As a user, I can add food item into the shopping cart
+  - Story 5: As a user, I can add special instructions to the items that I want to add to the cart
+  - Story 6: As a user, I can see a shopping cart icon with the number of items added
+  - Story 7: As a user, I can make changes to the quantity of the existing food items.
+  - Story 8: As a user, I can see my order summary when upon clicking on the shopping cart icon 
+
+## TECHNOLOGY USED
+
+ ### Frontend
+    - Front-end: https://restaurant-deploy.herokuapp.com/
+      - Axios: To handle communication between front-end and server 
+      - React: Framework to craft user interface
+      - React Router Dom: Routing between web-pages
+      - TailwindCSS: For certain stylistic interfaces
+    - Design: https://trello.com/b/525J8fHa/capstone-project
+
+ ### Backend
+    - Back-end: https://gentle-thicket-13588.herokuapp.com/
+     - Database type: PostgresSQL
+     - Host: Heroku PostgresSQL
+     - Object-Relational Mapping(ORM): Sequelize library
+     - Express: Managing https requests
+    - Design: https://trello.com/b/525J8fHa/capstone-project
