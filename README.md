@@ -15,7 +15,7 @@
   - Story 5: As a user, I can add special instructions to the items that I want to add to the cart
   - Story 6: As a user, I can see a shopping cart icon with the number of items added
   - Story 7: As a user, I can make changes to the quantity of the existing food items.
-  - Story 8: As a user, I can see my order summary when upon clicking on the shopping cart icon 
+  - Story 8: As a user, I can see my order summary upon clicking on the shopping cart icon 
 
 - ADMIN
   - Story 1: As a admin, I can view the order summary as well as the specific items ordered for a order number when I search for a order number in search field
