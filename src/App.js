@@ -2,19 +2,8 @@ import React, { useState, useEffect } from "react";
 // import { NavBar } from "./components";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-// import Cart from './components/Cart/Cart';
-// import { foodCategoryList } from "./constants";
-// import { foodItemList } from "./constants";
 import RoutesFile from "./router/RoutesFile";
 import API from "./api";
-
-// const { testConnection} = require('./models');
-
-// testConnection();
-
-// const foodCategory = { foodCategoryList };
-// let foodCategory = [];
-// const foodItem = { foodItemList };
 
 function App() {
 
@@ -80,9 +69,6 @@ function App() {
     }else{
       return null
     }
-
-    
-
     console.log(cartItems);
   };
 

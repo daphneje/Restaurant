@@ -35,3 +35,42 @@
   .app_modal_button button {
       width: 30%
   }
+
+  .count_button {
+    display:flex;
+    align-items: center;
+  justify-content: center;
+  
+
+  }
+  
+  .count_button button {
+    width: 2.5rem;
+  }
+
+  .section-2{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+  }
+
+  .text{
+    border: 3px solid #DDDDDD;
+    width: 300px;
+  }
+
+  .form{
+    display: flex;
+  justify-content: space-between;
+  max-width: 70%;
+  margin: auto;
+  
+
+ 
+
+  }
+
+  .submit{
+    border: 3px solid #DDDDDD;
+
+  }
